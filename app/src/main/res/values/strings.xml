@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Pertemuan 11-14</string>
+    <string name="nama">Nama</string>
+    <string name="masukkan_nama">Masukkan nama</string>
+    <string name="nim">NIM</string>
+    <string name="masukkan_nim">Masukkan NIM</string>
+    <string name="simpan_data">SIMPAN DATA</string>
+    <string name="data_mahasiswa_tersimpan">Data Mahasiswa Tersimpan</string>
+    <string name="tidak_ada_data_tersimpan">Tidak ada data tersimpan</string>
+    <string name="image">image</string>
+</resources>
