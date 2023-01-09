@@ -11,6 +11,28 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="20dp"
+        android:text="@string/aplikasi_pengelola_data_mahasiswa"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:text="@string/_22_22_2497"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

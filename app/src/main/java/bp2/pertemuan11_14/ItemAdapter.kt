@@ -35,6 +35,18 @@ class ItemAdapter(val context: Context, val items:ArrayList<DataModelClass>) : R
         } else {
             holder.llMain.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite))
         }
+
+        holder.ivEdit.setOnClickListener { view ->
+            if (context is MainActivity) {
+                context.updateDataMahasiswa(item)
+            }
+        }
+
+        holder.ivDelete.setOnClickListener { view ->
+            if (context is MainActivity) {
+                context.hapusDataMahasiswa(item)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

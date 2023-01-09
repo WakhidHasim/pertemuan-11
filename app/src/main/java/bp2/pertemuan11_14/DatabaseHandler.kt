@@ -18,7 +18,6 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
-        //Membuat tabel
         val CREATE_CONTACTS_TABLE =
             ("CREATE TABLE " + TABLE_CONTACTS + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAMA + " TEXT," + KEY_NIM + " TEXT" + ")")
         db?.execSQL(CREATE_CONTACTS_TABLE)
@@ -33,20 +32,17 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         val db = this.writableDatabase
         val contentValues = ContentValues()
 
-        contentValues.put(KEY_NAMA, emp.nama) // DataModelClass Nama
-        contentValues.put(KEY_NIM, emp.nim) // DataModelClass nim
+        contentValues.put(KEY_NAMA, emp.nama)
+        contentValues.put(KEY_NIM, emp.nim)
 
-        //Memasukkan detail mahasiswa menggunakan query
         val success = db.insert(TABLE_CONTACTS, null, contentValues)
-        db.close() //Menutup database
+        db.close()
         return success
     }
 
-    //Metode untuk menampilkan data dari database
     fun tampilMahasiswa(): ArrayList<DataModelClass> {
-        val empList: ArrayList<DataModelClass> =
-            ArrayList<DataModelClass>()
-        //Query untuk menampilkan semua data dari database
+        val empList: ArrayList<DataModelClass> = ArrayList<DataModelClass>()
+
         val selectQuery = "SELECT * FROM $TABLE_CONTACTS"
         val db = this.readableDatabase
         var cursor: Cursor? = null
@@ -64,10 +60,34 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 id = cursor.getInt(cursor.getColumnIndexOrThrow(KEY_ID))
                 nama = cursor.getString(cursor.getColumnIndexOrThrow(KEY_NAMA))
                 nim = cursor.getString(cursor.getColumnIndexOrThrow(KEY_NIM))
+
                 val emp = DataModelClass(id = id, nama = nama, nim = nim)
                 empList.add(emp)
             } while (cursor.moveToNext())
         }
         return empList
+    }
+
+    fun updateMahasiswa(emp: DataModelClass): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_NAMA, emp.nama)
+        contentValues.put(KEY_NIM, emp.nim)
+
+        val success = db.update(TABLE_CONTACTS, contentValues, KEY_ID + "=" + emp.id, null)
+
+        db.close()
+        return success
+    }
+
+    fun hapusMahasiswa(emp: DataModelClass) : Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_ID, emp.id)
+
+        val success = db.delete(TABLE_CONTACTS, KEY_ID + "=" + emp.id, null)
+
+        db.close()
+        return success
     }
 }

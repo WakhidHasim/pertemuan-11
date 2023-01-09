@@ -8,4 +8,9 @@
     <string name="data_mahasiswa_tersimpan">Data Mahasiswa Tersimpan</string>
     <string name="tidak_ada_data_tersimpan">Tidak ada data tersimpan</string>
     <string name="image">image</string>
+    <string name="aplikasi_pengelola_data_mahasiswa">Aplikasi Pengelola Data Mahasiswa</string>
+    <string name="_22_22_2497">22.22.2497</string>
+    <string name="update_data_mahasiswa">Update Data Mahasiswa</string>
+    <string name="update">UPDATE</string>
+    <string name="batal">Batal</string>
 </resources>
